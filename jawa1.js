@@ -1,56 +1,35 @@
-let initialscore=100
-let highscore=null;
-let randomnumber = generateRandomInteger(100);
-function reloadgame(){
-    document.getElementById('guessid').value="";
-    document.querySelector('.score').textContent=100
-    document.querySelector('#sc').textContent="Start guessing..."
-    document.body.style.backgroundColor="#222";
-    document.querySelector('.number').style.height="12rem"
-    document.querySelector('.number').textContent="?";
-     randomnumber = generateRandomInteger(100);
-}
+let checkNum = document.querySelector('input')
+let btn = document.getElementsByClassName('check')
+let chance = document.getElementsByClassName('chance')
+let score = document.getElementsByClassName('score')
+let update = document.getElementsByClassName('guess')
+let randomnumber = Math.floor(Math.random() * 100);
+let count = 100;
 
-function generateRandomInteger(max) {
-    return Math.floor(Math.random() * max) + 1;
-}
-  
-    
-  
-  function maincheck(){
-          
-       let inputnumber= document.querySelector('#guessid').value
-    //    let changvalue=document.querySelector('.score').textContent
-
-    if(initialscore!==0){
-       if(inputnumber>randomnumber ){
-       document.querySelector('.message').textContent="Your Guess Is High"
-           initialscore--
-         document.querySelector('.score').textContent=initialscore
-       }
-       else if(inputnumber<randomnumber){
-        document.querySelector('.message').textContent="Your Guess Is Low"
-        initialscore--
-        document.querySelector('.score').textContent=initialscore
-       }
-       else{
-
-        document.querySelector('.message').textContent="👑 Hurray You Won 👑"
-        document.body.style.backgroundColor="green";
-        initialscore--
-        document.querySelector('.score').textContent=initialscore
-        document.querySelector('.number').textContent=randomnumber;
-        document.querySelector('.number').style.height="10rem"
-         highscore=initialscore
-          document.querySelector('.highscore').textContent=highscore
-          document.querySelector('.check').style.visibility="hidden" 
-        
-             
-        
-       }
-    } else{
-        document.querySelector('.message').textContent="Game Over 🙂 🙂 your score is 0"
-        
+function callme() {
+    if (randomnumber < parseInt(checkNum.value)) {
+        update[0].innerHTML = 'Your Guess Is High'
+        count--;
+        chance[0].innerHTML = `💯 Chances:${count}`;
+    } else if (randomnumber > parseInt(checkNum.value)) {
+        update[0].innerHTML = 'Your Guess Is Low'
+        count--;
+        chance[0].innerHTML = `💯 Chances:${count}`;
+    } else {
+        update[0].innerHTMLs = randomnumber;
+        count--
+        score[0].innerHTML = `Highest Score : ${count}`
     }
-       
-   }
+
+}
+
+let chance2 = document.getElementsByClassName('play')
+
+
+function tryagain() {
+    document.body.style.backgroundColor = "#222";
+    document.getElementById('name').value = "";
+    document.querySelector('#chance1').innerHTML = '💯 Chances:100'
+    document.querySelector('#score1').innerHTML = '🥇 Highscore:0'
+    document.querySelector('#guess1').innerHTML = 'Start Guessing...'
+}
