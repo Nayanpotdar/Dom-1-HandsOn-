@@ -1,32 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>guessMyNumber</title>
+    <title>Play Hemant Game Zone</title>
     <link rel="stylesheet" href="./style1.css">
 </head>
+
 <body>
-    <header>
-        <h1>Guess My Number!</h1>
-        <p class="between">(Between 1 and 100)</p>
-        <button class="btn again" onclick="reloadgame()"> Play Again</button>
-        <div class="number">?</div>
-      </header>
-      
-      <main>
-        <section class="left">
-          <input type="number" class="guess" id="guessid" />
-          <button class="btn check" onclick="maincheck()">Check!</button>
-        </section>
-        <section class="right">
-          <p class="message" id="sc">Start guessing...</p>
-          <p class="label-score">💯 Chances: <span class="score">100</span></p>
-          <p class="label-highscore">
-            🏆 Highscore: <span class="highscore">0</span>
-          </p>
-        </section>
-      </main>
+    <button class="Play" onclick="tryagain()">Play Again</button>
+
+    <h2 class="condition">(Between 1 and 100)</h2>
+    <h1 class="heading"> Guess My Number!</h1>
+
+    <div class="box">?</div>
+    <div class="line"></div>
+
+    <form>
+        <input type="number" id="name" placeholder="Enter Number">
+    </form>
+
+    <button class="check" onclick="callme()">Check!</button>
+
+    <div class="guess" id="guess1">Start Guessing...</div>
+
+    <div class="chance" id="chance1"> 💯 Chances:100</div>
+    <div class="score" id="score1">🥇 Highscore:0</div>
+
+
+
+
+
+
+
+
+
     <script src="./jawa1.js"></script>
+
+
 </body>
+
 </html>
